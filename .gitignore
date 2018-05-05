@@ -49,3 +49,5 @@ ENV/
 
 # Staticfiles
 staticfiles/
+
+*.sw?
