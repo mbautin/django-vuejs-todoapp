@@ -53,3 +53,5 @@ staticfiles/
 *.sw?
 
 .session.*
+
+.venv
