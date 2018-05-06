@@ -58,3 +58,5 @@ staticfiles/
 
 templates/static
 templates/index.html
+
+*.sqlite3

@@ -1,5 +1,5 @@
 <template>
-  <div id="user-inputs">
+  <div class="todouserinput" id="user-inputs">
     <input v-model="newTodoText" v-on:keyup.enter="createTodo">
     <button v-on:click="clearTodos">
       Clear
@@ -23,3 +23,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.todouserinput {
+  background:blue 
+}
+
+</style>

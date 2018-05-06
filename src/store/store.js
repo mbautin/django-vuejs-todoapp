@@ -19,6 +19,16 @@ const store = new Vuex.Store({
     'ADD_TODO': function (state, response) {
       state.todos.push(response.body)
     },
+    'DELETE_TODO': function (state, todoId, response) {
+      for (let i = 0; i < state.todos.length; ++i) {
+        let foundId = state.todos[i].id;
+        if (foundId == todoId) {
+          state.todos.splice(i, 1);
+          return;
+        }
+      }
+      console.log("Did not find todo id", todoId, "to delete");
+    },
     'CLEAR_TODOS': function (state) {
       const todos = state.todos
       todos.splice(0, todos.length)
@@ -39,6 +49,11 @@ const store = new Vuex.Store({
     addTodo (store, todo) {
       return api.post(apiRoot + '/todos/', todo)
         .then((response) => store.commit('ADD_TODO', response))
+        .catch((error) => store.commit('API_FAIL', error))
+    },
+    deleteTodo (store, todoId) {
+      return api.delete(apiRoot + '/todos/' + todoId)
+        .then((response) => store.commit('DELETE_TODO', todoId, response))
         .catch((error) => store.commit('API_FAIL', error))
     },
     clearTodos (store) {
