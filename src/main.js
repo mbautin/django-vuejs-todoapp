@@ -8,10 +8,15 @@ import store from './store/store.js'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+let v = new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App },
   store: store
 })
+
+
+// This should be the only new line ***
+v.$store.dispatch('getTodos')
+

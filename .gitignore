@@ -55,3 +55,6 @@ staticfiles/
 .session.*
 
 .venv
+
+templates/static
+templates/index.html
